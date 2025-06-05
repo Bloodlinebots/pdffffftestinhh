@@ -1,0 +1,29 @@
+{
+  "name": "Image to PDF Bot",
+  "description": "A Telegram and Streamlit bot to convert images to PDF.",
+  "repository": "https://github.com/your-username/image-to-pdf-bot",
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "Your Telegram bot token from BotFather",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "echo 'App deployed! Make sure to scale worker for Telegram bot.'"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "stack": "heroku-22"
+}
